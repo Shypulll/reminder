@@ -1,0 +1,123 @@
+<html><head>
+    <title>logowanie</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    
+    <link href="static/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="static/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="static/fontawesome/css/solid.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="templates/Sites/static/sizing.css">
+    <link rel="stylesheet" href="templates/Sites/static/globalCSS.css">
+
+
+    
+    <link href="static/fontawesome/css/v5-font-face.css" rel="stylesheet">
+    <title> Vizja.app - </title>
+    <link rel="stylesheet" href="static/globalSite/globalCSS.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+
+        <!--    DONT TOUCH THIS. ITS FOR WORKING CLOSING ACCORDION-->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+            <script defer="" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <!--END OF DONT TOUCHING-->
+
+    <script>
+         function language(lan)
+            {
+                console.log("JESTEM");
+                console.log(lan);
+                console.log(window.location.href);
+                $('#lan').attr("value",lan);
+                $('#url').attr("value", window.location.href);
+                console.log("OTRZYMAŁEM TAKIE DANE: ");
+                console.log(lan);
+                console.log(window.location.href);
+                $('lan_changer').submit();
+            }
+    </script>
+
+    <style>
+        img { height: 4rem; }
+    </style>
+
+</head>
+
+<body class="textvizja tlo-logowania login-body">
+    <div class="bg-white kafel-logowania shadow-lg">
+        <div class="px-5 py-0">
+
+            <div class="d-flex justify-content-end py-4">
+                <div class="nav-item dropdown no-arrow">
+                    <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">
+                        <span class="d-none d-lg-inline me-2 small">&nbsp;</span>
+                        <i class="text-dark fas fa-globe fa-fw"> </i>
+                    </a>
+                    <!----me-1 text-dark small---->
+                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">
+                         <form id="lan_changer" action="/change/language" method="post">
+                            <input type="hidden" id="lan" name="lan" value="">
+                            <input type="hidden" id="url" name="url" value="">
+
+                            <button class="dropdown-item textvizja" onclick="language('pl')" type="submit">
+    <!--                                -->
+                                <img src="/static/assets/img/flag-pl.png" alt="Polski" width="20rem" height="10rem">
+                                Polski
+                            </button>
+                            <button class="dropdown-item textvizja" onclick="language('en')" type="submit">
+    <!--                                -->
+                                <img src="/static/assets/img/flag-gb.png" alt="English" width="20rem" height="10rem">
+                                English
+                            </button>
+                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mb-5">
+                <div class="row gx-0">
+                    <div class="col-12 col-lg-6 obrazki-logowanie pb-3">
+                        <img src="/static/assets/img/vizja-logo3-256.png">
+                    </div>
+
+                    <div class="col col-12 col-lg-6 obrazki-logowanie">
+                        
+                        <img src="/static/assets/img/logo_aeh_pl.png" alt="Logo AEH">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <hr class="hr-grey">
+
+            <div class="mt-5">
+                    <a class="btn btn-dark d-block w-100 mb-5 py-4" role="button" href="https://login.microsoftonline.com/8fe7a824-f641-487b-a3bc-dcdb7ad5df5f/oauth2/v2.0/authorize?client_id=d1e53271-e5f0-4d5d-9395-fb642573d295&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Fstudent.vizja.app%2FgetAToken&amp;scope=Calendars.Read+Calendars.Read.Shared+Calendars.ReadWrite+Calendars.ReadWrite.Shared+Channel.Create+EduAssignments.Read+EduAssignments.ReadBasic+EduAssignments.ReadWrite+EduAssignments.ReadWriteBasic+Files.Read.All+Group.Read.All+OnlineMeetings.ReadWrite+Team.Create+Team.ReadBasic.All+TeamMember.Read.All+TeamMember.ReadWrite.All+User.Read+User.ReadBasic.All+offline_access+openid+profile&amp;state=QZIUpxeyvMqmEXDV&amp;code_challenge=6tp0C5aF-f8VgVGTzmTdCtiBIZ5DeAqlB2PGLqmOYBE&amp;code_challenge_method=S256&amp;nonce=41af240fa32555e55897fc91810598e712035143776ececfa338db408df0bba5&amp;client_info=1">
+                        <i class="fab fa-microsoft"></i>
+                        &nbsp;Zaloguj się przez Microsoft</a>
+            </div>
+
+            <hr class="hr-grey">
+
+            <div class="text-center">
+                <a class="small" href="mailto:testlms@vizja.pl">Pomoc</a>
+            </div>
+
+            <hr class="hr-grey">
+
+            <div class="obrazki-logowanie fundusze pb-1">
+                <img src="/static/assets/img/UE-PL.jpg" alt="logo Fundusze Europejskie">
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+</body></html>
