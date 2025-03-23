@@ -30,7 +30,7 @@ public class ScraperService {
 
         System.setProperty("webdriver.chrome.driver", "/opt/homebrew/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         WebDriver driver = new ChromeDriver(options);
 
         try {
@@ -65,10 +65,11 @@ public class ScraperService {
             Thread.sleep(15000);
             String currentUrl = driver.getCurrentUrl();
             System.out.println(currentUrl);
-            if (currentUrl.contains("login")) {
-                System.out.println("❌ Вход не выполнен. Проверь логин и пароль.");
-                return;
-            }
+
+//            if (currentUrl.contains("login")) {
+//                System.out.println("❌ Вход не выполнен. Проверь логин и пароль.");
+//                return;
+//            }
 //            // Вводим логин и пароль на странице Microsoft
 //            driver.findElement(By.name("loginfmt")).sendKeys(username);
 //            driver.findElement(By.id("idSIButton9")).click();
@@ -88,6 +89,8 @@ public class ScraperService {
 
             // Открываем расписание
             driver.get("https://student.vizja.app/schedule");
+            String currentUrl1 = driver.getCurrentUrl();
+            System.out.println(currentUrl1);
             Thread.sleep(8000);
             try (PrintWriter out = new PrintWriter("full_schedule_page.html", StandardCharsets.UTF_8)) {
                 out.println(driver.getPageSource());
